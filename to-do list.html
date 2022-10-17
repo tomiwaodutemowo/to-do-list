@@ -1,0 +1,123 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+ 
+
+  <div id="myDIV" class="header">
+    <h2 style="margin:5px">My To Do List</h2>
+    <input type="text" id="myInput" placeholder="To-do list.....">
+    <span onclick="newElement()" class="addBtn">Add TO-DO</span>
+  </div>
+  
+  <ul id="myUL">
+    <li>Hit the gym</li>
+    <li>Pay bills</li>
+    <li>Study</li>
+    <li>Go shopping</li>
+    <li>Read a book</li>
+    <li>Office activities</li>
+    <li>Meeting</li> 
+  </ul>
+  
+    
+  <script>
+    // Create a "close" button and append it to each list item
+    var myNodelist = document.getElementsByTagName("LI");
+    var i;
+    for (i = 0; i < myNodelist.length; i++) {
+      var span = document.createElement("SPAN");
+      var txt = document.createTextNode("\u00D7");
+      span.className = "close";
+      span.appendChild(txt);
+      myNodelist[i].appendChild(span);
+    }
+    
+    // Click on a close button to hide the current list item
+    var close = document.getElementsByClassName("close");
+    var i;
+    for (i = 0; i < close.length; i++) {
+      close[i].onclick = function() {
+        var div = this.parentElement;
+        div.style.display = "none";
+    };
+      }
+
+// create a "edit" button and append it to each list item
+      var edit = document.getElementById("edit");
+      var edit = document.createElement("SPAN");
+      var eText = document.createTextNode("\u270E");
+      edit.className = "edit";
+      edit.appendChild(eText);
+      li.appendChild(edit);
+
+      var editC = document.getElementsById("edit");
+
+      for (var e = 0; e < editC.length; e++) {
+      editC[e].onclick = function () {
+        var p = prompt("Edit your entry");
+        entry.innerText = p;
+      }
+      }
+
+      
+    
+// var button_edit = document.getElementsByClassName('edit');
+
+// for (var i=0; i < button_edit.length; i++) {
+//     button_edit[i].addEventListener('click', edit);
+// };
+
+
+    
+    // Add a "checked" symbol when clicking on a list item
+    // var list = document.querySelector('ul');
+    // list.addEventListener('click', function(ev) {
+    //   if (ev.target.tagName === 'LI') {
+    //     ev.target.classList.toggle('checked');
+    //   }
+    // }, false);
+    
+    // Create a new list item when clicking on the "Add" button
+    function newElement() {
+      var li = document.createElement("li");
+      var inputValue = document.getElementById("myInput").value;
+      var t = document.createTextNode(inputValue);
+      li.appendChild(t);
+      if (inputValue === '') {
+        alert("You must write something!");
+      } else {
+        document.getElementById("myUL").appendChild(li);
+      }
+      document.getElementById("myInput").value = "";
+    
+      var span = document.createElement("SPAN");
+      var txt = document.createTextNode("\u00D7");
+      span.className = "close";
+      span.appendChild(txt);
+      li.appendChild(span);
+    
+      for (i = 0; i < close.length; i++) {
+        close[i].onclick = function() {
+          var div = this.parentElement;
+          div.style.display = "none";
+        }
+      }
+    }
+
+    
+
+    </script>
+    
+
+
+
+  
+</body>
+</html>
